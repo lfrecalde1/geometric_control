@@ -553,7 +553,6 @@ class DifferentialFlatnessNode(Node):
         e_omega = omega - R_b.T@R_d@omega_d 
 
         # Nonlinear Dynamics Inversion 
-        #M = self.K_orientation@er + self.K_omega@e_omega + c -self.J@(self.hedge(omega)@R_b.T@R_d@omega_d - R_b.T@R_d@omega_d_d)
         M = c -self.J@self.K_orientation@er - self.J@self.K_omega@e_omega
         return force, M.reshape((3,))
 
